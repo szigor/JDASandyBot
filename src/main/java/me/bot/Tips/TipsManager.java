@@ -23,7 +23,12 @@ public class TipsManager {
         JSONObject champObject = getJsonObject(champion);
 
         String allyTips = champObject.get("allytips").toString().replaceAll("[\\[\\]\"]", "");
-        List<String> allyList = new java.util.ArrayList<>(List.of(allyTips.split("\\.")));
+        //List<String> allyList = new java.util.ArrayList<>(List.of(allyTips.split("\\.")));
+        List<String> allyList = new ArrayList<>();
+        String[] splitted = allyTips.split("\\.");
+        for (String s : splitted) {
+            allyList.add(s);
+        }
         clearList(allyList);
 
         return allyList;
@@ -34,7 +39,12 @@ public class TipsManager {
         JSONObject champObject = getJsonObject(champion);
 
         String enemyTips = champObject.get("enemytips").toString().replaceAll("[\\[\\]\"]", "");
-        List<String> enemyList = new java.util.ArrayList<>(List.of(enemyTips.split("\\.")));
+        //List<String> enemyList = new java.util.ArrayList<>(List.of(enemyTips.split("\\.")));
+        List<String> enemyList = new ArrayList<>();
+        String[] splitted = enemyTips.split("\\.");
+        for (String s : splitted) {
+            enemyList.add(s);
+        }
         clearList(enemyList);
 
         return enemyList;
